@@ -5,7 +5,11 @@ import { abi } from '../lib/abi'
 
 const CONTRACT = '0xa61878Cd14f87F22623A44Cf54D8F2F0a0E6c11a'
 
-export default function MintButton({ level }: { level: number }) {
+type Props = {
+  level: number
+}
+
+export default function MintButton({ level }: Props) {
   const { writeContract, isPending } = useWriteContract()
 
   return (
@@ -19,7 +23,7 @@ export default function MintButton({ level }: { level: number }) {
       }
       className='w-full py-3 rounded-xl bg-blue-500 mt-4'
     >
-      {isPending ? 'Minting...' : \Mint Level \\}
+      {isPending ? 'Minting...' : 'Mint Level ' + level}
     </button>
   )
 }
